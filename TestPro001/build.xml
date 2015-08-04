@@ -6,11 +6,17 @@
               as the first entry and export the buildfile again. --><project basedir="." default="build" name="TestPro001">
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="../../../Eclipse/pleiades4.5jre/eclipse/"/>
+    <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
+    <path id="JUnit 4.libraryclasspath">
+        <pathelement location="${ECLIPSE_HOME}plugins/org.junit_4.12.0.v201504281640/junit.jar"/>
+        <pathelement location="${ECLIPSE_HOME}plugins/org.hamcrest.core_1.3.0.v201303031735.jar"/>
+    </path>
     <path id="TestPro001.classpath">
         <pathelement location="bin"/>
+        <path refid="JUnit 4.libraryclasspath"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -52,5 +58,21 @@
         <java classname="com.fx.ProMain" failonerror="true" fork="yes">
             <classpath refid="TestPro001.classpath"/>
         </java>
+    </target>
+    <target name="TestCalc">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="com.test.TestCalc" todir="${junit.output.dir}"/>
+            <classpath refid="TestPro001.classpath"/>
+        </junit>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
     </target>
 </project>
