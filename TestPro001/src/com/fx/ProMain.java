@@ -9,7 +9,7 @@ public class ProMain {
 	}
 
 	private static void test001() {
-		Util ut = new Util();
+		CalcUtil ut = new CalcUtil();
 		int val = 0;
 
 		val = ut.CalculateValue(1, 2);
