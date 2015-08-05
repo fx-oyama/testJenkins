@@ -13,15 +13,15 @@ import com.fx.CalcUtil;
 public class TestCalc {
 
 	static {
-		System.out.println("スタティックイニシャライザ call");
+		System.out.println("static init call");
 	}
 
 	{
-		System.out.println("インスタンスイニシャライザ call");
+		System.out.println("instance init call");
 	}
 
 	public TestCalc() {
-		System.out.println("コンストラクタ call");
+		System.out.println("constractor call");
 	}
 
 	@Override
