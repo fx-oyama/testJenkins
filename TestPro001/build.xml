@@ -44,15 +44,17 @@
     </target>
     <target name="TestCalc">
         <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
+        <junit fork="yes" haltonfailure="false">
             <formatter type="xml"/>
             <test name="com.test.TestCalc" todir="${junit.output.dir}"/>
             <classpath refid="TestPro001.classpath"/>
         </junit>
     </target>
+<!--
     <target name="unit-test" description="execute Junit">
         <junit fork="yes" haltonfailure="false"  >
         <formatter type="xml" usefile="true" />
+            <classpath refid="TestPro001.classpath"/>
             <classpath refid="TestPro001.classpath"/>
             <batchtest fork="yes" todir="${report.test.dir}" >
                 <fileset dir="${compile.test.src}" >
@@ -62,4 +64,5 @@
 
         </junit>
     </target>
+-->
 </project>
