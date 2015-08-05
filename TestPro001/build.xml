@@ -57,7 +57,7 @@
                     <include name="**/Test*.java"/>
                 </fileset>
             </batchtest>
-        	<classpath refid="TestPro001.classpath"/>
+            <classpath refid="TestPro001.classpath"/>
         </junit>
     </target>
 </project>
