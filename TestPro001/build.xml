@@ -2,7 +2,7 @@
 <project basedir="." default="build" name="TestPro001">
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="D:/Eclipse/pleiades4.5jre/eclipse/"/>
-    <property name="junit.output.dir" value="./junit"/>
+    <property name="junit.output.dir" value="/home/ec2-user/junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
