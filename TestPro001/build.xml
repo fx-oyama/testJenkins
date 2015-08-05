@@ -3,6 +3,7 @@
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="D:/Eclipse/pleiades4.5jre/eclipse/"/>
     <property name="compile.test.src" location="${basedir}/src"/>
+    <property name="report.dir" value="${basedir}/report"/>
     <property name="junit.output.dir" value="/var/lib/jenkins/jobs/Test001/workspace/TestPro001/junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
@@ -16,6 +17,7 @@
     </path>
     <target name="init">
         <mkdir dir="bin"/>
+        <mkdir dir="report"/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
                 <exclude name="**/*.launch"/>
