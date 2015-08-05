@@ -74,7 +74,7 @@ public class TestCalc {
 		System.out.println(">>> test");
 		int a = 2;
 		int b = 4;
-		int result = 5;
+		int result = 6;
 		int cal = 0;
 
 		CalcUtil cv = new CalcUtil();
