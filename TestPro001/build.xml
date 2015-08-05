@@ -49,12 +49,15 @@
             <classpath refid="TestPro001.classpath"/>
         </junit>
     </target>
-    <target name="junitreport">
-        <junitreport todir="${junit.output.dir}">
-            <fileset dir="${junit.output.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${junit.output.dir}"/>
-        </junitreport>
+    <target name="unit-test" description="execute Junit">
+        <junit fork="yes" haltonfailure="false"  >
+        <formatter type="xml" usefile="true" />
+            <batchtest fork="yes" todir="${report.test.dir}" >
+                <fileset dir="${compile.test.src}" >
+                    <include name="**/Test*.java"/>
+                </fileset>
+            </batchtest>
+        	<classpath refid="TestPro001.classpath"/>
+        </junit>
     </target>
 </project>
