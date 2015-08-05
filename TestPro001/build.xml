@@ -4,7 +4,7 @@
     <property name="ECLIPSE_HOME" value="D:/Eclipse/pleiades4.5jre/eclipse/"/>
     <property name="compile.test.src" location="${basedir}/src"/>
     <property name="report.dir" value="${basedir}/report"/>
-    <property name="junit.output.dir" value="/var/lib/jenkins/jobs/Test001/workspace/TestPro001/junit"/>
+    <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
@@ -39,17 +39,13 @@
         </javac>
         <mkdir dir="juniInit2"/>
     </target>
-<!--
-    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
--->
-    <target name="ProMain">
-        <echo message="---- ProMain-----"/>
+    <target name="promain">
         <mkdir dir="juniMain"/>
         <java classname="com.fx.ProMain" failonerror="true" fork="yes">
             <classpath refid="TestPro001.classpath"/>
         </java>
     </target>
-    <target name="TestCalc">
+    <target name="testcalc">
         <mkdir dir="juni"/>
         <mkdir dir="report2"/>
         <mkdir dir="${report.dir}"/>
