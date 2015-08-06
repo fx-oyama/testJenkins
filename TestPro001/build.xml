@@ -60,11 +60,11 @@
      ================================= -->
 	<target name="checkstyle">
        <mkdir dir="report"/>
-	   <taskdef resource="checkstyletask.properties"     
-	    classpath="${checkstyle.dir}/checkstyle.jar" />
+	   <taskdef resource="checkstyletask.properties"
+	    classpath="${checkstyle.dir}/checkstyle-6.8.1-all.jar"/>
 	    <checkstyle config="${checkstyle.dir}/checkstyle_checks.xml" failOnViolation="false">
 	    <formatter type="xml" tofile="checkstyle-result.xml" />
 	    <fileset dir="src" includes="**/*.java" />
 	    </checkstyle>
-	</target>	
+	</target>
 </project>
