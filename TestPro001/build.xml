@@ -8,6 +8,8 @@
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
+	<property name="findbugs.dir" value="/usr/share/java"/>
+	<property name="checkstyle.dir" value="/usr/share/java"/>
     <path id="JUnit 4.libraryclasspath">
         <pathelement location="/usr/share/java/junit.jar"/>
     </path>
@@ -28,7 +30,7 @@
         <delete dir="bin"/>
     </target>
     <target depends="clean" name="cleanall"/>
-    <target depends="build-subprojects,build-project,TestCalc,junitreport" name="build"/>
+    <target depends="build-subprojects,build-project,checkstyle" name="build"/>
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
@@ -53,4 +55,18 @@
 	            <report format="frames" todir="${junit.output.dir}"/>
 	        </junitreport>
 	    </target>
+    <!-- =================================
+          target: checkstyle
+     ================================= -->
+    <target name="checkstyle" >
+        <mkdir dir="report"/>
+        <taskdef resource="checkstyletask.properties"
+                   classpath="${checkstyle.dir}/checkstyle.jar" />
+         <checkstyle config="${checkstyle.dir}/checkstyle.xml">
+            <fileset dir="${basedir}"
+                includes="**/*.java"
+                excludes="src/**"/>
+             <formatter type="xml" tofile="${report.dir}/checkstyle_report.xml"/>
+        </checkstyle>
+    </target>
 </project>
