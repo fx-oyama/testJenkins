@@ -81,6 +81,7 @@
           target: findbugs
     ================================= -->
     <target name="Findbugs">
+    	<echo message="FINDBUGS_HOME: ${env.FINDBUGS_HOME}"/>
         <mkdir dir="${report.dir}"/>
         <taskdef name="findbugs"
             classname="edu.umd.cs.findbugs.anttask.FindBugsTask">
