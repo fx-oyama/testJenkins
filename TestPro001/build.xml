@@ -16,6 +16,7 @@
     <path id="JUnit 4.libraryclasspath">
         <pathelement location="/usr/share/java/junit.jar"/>
     </path>
+<!--
     <property environment="env" />
     <condition property="have.findbugs">
         <and>
@@ -23,7 +24,7 @@
             <available file="${env.FINDBUGS_HOME}" />
         </and>
     </condition>
-
+-->
     <path id="TestPro001.classpath">
         <pathelement location="bin"/>
         <path refid="JUnit 4.libraryclasspath"/>
@@ -41,7 +42,7 @@
         <delete dir="bin"/>
     </target>
     <target depends="clean" name="cleanall"/>
-    <target depends="build-subprojects,build-project,Findbugs" name="build"/>
+    <target depends="build-subprojects,build-project,Checkstyle,Findbugs" name="build"/>
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
@@ -67,22 +68,23 @@
 	        </junitreport>
 	    </target>
     <!-- =================================
-          target: checkstyle
+          target: Checkstyle
      ================================= -->
-	<target name="checkstyle">
+	<target name="Checkstyle">
        <mkdir dir="report"/>
 	   <taskdef resource="checkstyletask.properties"
 	    classpath="${checkstyle.dir}/checkstyle-6.8.1-all.jar"/>
-	    <checkstyle config="${checkstyle.dir}/checkstyle_checks.xml" failOnViolation="false">
+	    <checkstyle config="${checkstyle.dir}/checkstyle_checks.xml">
             <formatter type="xml" tofile="checkstyle-result.xml" />
 	        <fileset dir="src" includes="**/*.java" />
 	    </checkstyle>
 	</target>
     <!-- =================================
-          target: findbugs
+          target: Findbugs
     ================================= -->
     <target name="Findbugs">
     	<echo message="FINDBUGS_HOME: ${findbugs.dir}"/>
+    	<delete dir="${report.dir}"/>
         <mkdir dir="${report.dir}"/>
         <taskdef name="findbugs"
             classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
@@ -95,22 +97,5 @@
         </findbugs>
       </target>
 
-	<!-- ビルドに必要なファイル群 -->
-	<!--
-	<path id="build.classpath">
-	    <fileset dir="/usr/local/tomcat/lib">
-	        <include name="*.jar"/>
-	    </fileset>
-	</path>
-	<target name="findbugs" if="have.findbugs">
-		<mkdir dir="${report.dir}2"/>
-	    <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" />
-	    <findbugs home="${env.FINDBUGS_HOME}" output="xml" outputFile="${report.dir}/findbugs.xml" >
-	    	<auxClasspath refid="build.classpath" />
-	        <sourcePath path="${build.SourceDir}" />
-	        <class location="${compile.dest}" />
-	    </findbugs>
-	</target>
-	-->
 
 </project>
