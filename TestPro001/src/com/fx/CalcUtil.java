@@ -10,4 +10,24 @@ public class CalcUtil {
 		return a + b;
 	}
 
+	// FindBugsエラー
+	public void checkStr() {
+		String aStr = "abc";
+		String bStr = "efg";
+		String cStr = "";
+
+		if (aStr == bStr) {
+			cStr = "ok";
+		}
+
+		while (true) {
+			System.out.println(">>>>" + cStr);
+			if (cStr == "1") {
+				break;
+			}
+		}
+
+		System.out.println(">>>>" + cStr);
+	}
+
 }
