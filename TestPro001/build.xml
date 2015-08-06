@@ -40,7 +40,7 @@
         <delete dir="bin"/>
     </target>
     <target depends="clean" name="cleanall"/>
-    <target depends="build-subprojects,build-project,findbugs" name="build"/>
+    <target depends="build-subprojects,build-project,Findbugs" name="build"/>
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
@@ -80,11 +80,10 @@
     <!-- =================================
           target: findbugs
     ================================= -->
-    <target name="findbugs">
+    <target name="Findbugs">
         <mkdir dir="${report.dir}"/>
         <taskdef name="findbugs"
-            classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
-            classpath="${findbugs.dir}/findbugs.jar">
+            classname="edu.umd.cs.findbugs.anttask.FindBugsTask">
         </taskdef>
         <findbugs home="${findbugs.dir}"
                   output="xml"
