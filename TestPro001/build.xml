@@ -12,6 +12,7 @@
 	<property name="checkstyle.dir" value="/usr/share/java"/>
 	<property name="compile.dest" location="${basedir}/bin"/>
 	<property name="build.SourceDir" location="${basedir}/src"/>
+	<property name="findbugs.dir" location="/usr/local/findbugs"/>
     <path id="JUnit 4.libraryclasspath">
         <pathelement location="/usr/share/java/junit.jar"/>
     </path>
@@ -81,12 +82,12 @@
           target: findbugs
     ================================= -->
     <target name="Findbugs">
-    	<echo message="FINDBUGS_HOME: ${env.FINDBUGS_HOME}"/>
+    	<echo message="FINDBUGS_HOME: ${findbugs.dir}"/>
         <mkdir dir="${report.dir}"/>
         <taskdef name="findbugs"
             classname="edu.umd.cs.findbugs.anttask.FindBugsTask">
         </taskdef>
-        <findbugs home="${env.FINDBUGS_HOME}"
+        <findbugs home="${findbugs.dir}"
                   output="xml"
                   outputFile="${report.dir}/findbugs.xml" >
             <class location="${compile.dest}"/>
