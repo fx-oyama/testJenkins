@@ -10,11 +10,19 @@
     <property name="source" value="1.7"/>
 	<property name="findbugs.dir" value="/usr/local/findbugs"/>
 	<property name="checkstyle.dir" value="/usr/share/java"/>
-	<property name="compile.dest" location="bin"/>
-	<property name="build.SourceDir" location="src"/>
+	<property name="compile.dest" location="${basedir}/bin"/>
+	<property name="build.SourceDir" location="${basedir}/src"/>
     <path id="JUnit 4.libraryclasspath">
         <pathelement location="/usr/share/java/junit.jar"/>
     </path>
+    <property environment="env" />
+    <condition property="have.findbugs">
+        <and>
+            <available classname="edu.umd.cs.findbugs.anttask.FindBugsTask" />
+            <available file="${env.FINDBUGS_HOME}" />
+        </and>
+    </condition>
+
     <path id="TestPro001.classpath">
         <pathelement location="bin"/>
         <path refid="JUnit 4.libraryclasspath"/>
@@ -86,17 +94,9 @@
         </findbugs>
       </target>
       -->
-
-	<property environment="env" />
-	<condition property="have.findbugs">
-	    <and>
-	        <available classname="edu.umd.cs.findbugs.anttask.FindBugsTask" />
-	        <available file="${env.FINDBUGS_HOME}" />
-	    </and>
-	</condition>
 	<target name="findbugs" if="have.findbugs">
 	    <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" />
-	    <findbugs home="${env.FINDBUGS_HOME}" effort="max" output="xml" outputFile="${report.dir}/findbugs.xml" >
+	    <findbugs home="${env.FINDBUGS_HOME}" output="xml" outputFile="${report.dir}/findbugs.xml" >
 	        <sourcePath path="${build.SourceDir}" />
 	        <class location="${compile.dest}" />
 	    </findbugs>
