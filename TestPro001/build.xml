@@ -85,7 +85,8 @@
     	<echo message="FINDBUGS_HOME: ${findbugs.dir}"/>
         <mkdir dir="${report.dir}"/>
         <taskdef name="findbugs"
-            classname="edu.umd.cs.findbugs.anttask.FindBugsTask">
+            classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
+        	classpath="${findbugs.dir}/lib/findbugs-ant.jar">
         </taskdef>
         <findbugs home="${findbugs.dir}"
                   output="xml"
