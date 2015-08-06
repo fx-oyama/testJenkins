@@ -94,9 +94,17 @@
         </findbugs>
       </target>
       -->
+
+	<!-- ビルドに必要なファイル群 -->
+	<path id="build.classpath">
+	    <fileset dir="/usr/local/tomcat/lib">
+	        <include name="*.jar"/>
+	    </fileset>
+	</path>
 	<target name="findbugs" if="have.findbugs">
 	    <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" />
 	    <findbugs home="${env.FINDBUGS_HOME}" output="xml" outputFile="${report.dir}/findbugs.xml" >
+	    	<auxClasspath refid="build.classpath" />
 	        <sourcePath path="${build.SourceDir}" />
 	        <class location="${compile.dest}" />
 	    </findbugs>
