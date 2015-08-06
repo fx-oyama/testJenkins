@@ -80,7 +80,6 @@
     <!-- =================================
           target: findbugs
     ================================= -->
-	<!--
     <target name="findbugs">
         <mkdir dir="${report.dir}"/>
         <taskdef name="findbugs"
@@ -90,12 +89,12 @@
         <findbugs home="${findbugs.dir}"
                   output="xml"
                   outputFile="${report.dir}/findbugs_report.xml" >
-            <class location="${compile.dest}" />
+            <class location="${compile.dest}"/>
         </findbugs>
       </target>
-      -->
 
 	<!-- ビルドに必要なファイル群 -->
+	<!--
 	<path id="build.classpath">
 	    <fileset dir="/usr/local/tomcat/lib">
 	        <include name="*.jar"/>
@@ -110,4 +109,6 @@
 	        <class location="${compile.dest}" />
 	    </findbugs>
 	</target>
+	-->
+
 </project>
