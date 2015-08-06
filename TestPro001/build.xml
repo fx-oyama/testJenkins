@@ -11,6 +11,7 @@
 	<property name="findbugs.dir" value="/usr/local/findbugs"/>
 	<property name="checkstyle.dir" value="/usr/share/java"/>
 	<property name="compile.dest" location="bin"/>
+	<property name="build.SourceDir" location="src"/>
     <path id="JUnit 4.libraryclasspath">
         <pathelement location="/usr/share/java/junit.jar"/>
     </path>
@@ -71,6 +72,7 @@
     <!-- =================================
           target: findbugs
     ================================= -->
+	<!--
     <target name="findbugs">
         <mkdir dir="${report.dir}"/>
         <taskdef name="findbugs"
@@ -83,4 +85,21 @@
             <class location="${compile.dest}" />
         </findbugs>
       </target>
+      -->
+
+	<property environment="env" />
+	<condition property="have.findbugs">
+	    <and>
+	        <available classname="edu.umd.cs.findbugs.anttask.FindBugsTask" />
+	        <available file="${env.FINDBUGS_HOME}" />
+	    </and>
+	</condition>
+	<target name="findbugs" if="have.findbugs">
+	    <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask" />
+	    <findbugs home="${env.FINDBUGS_HOME}" effort="max" output="xml" outputFile="${report.dir}/findbugs_report.xml" >
+	        <auxClasspath refid="TestPro001.classpath" />
+	        <sourcePath path="${build.SourceDir}" />
+	        <class location="${compile.dest}" />
+	    </findbugs>
+	</target>
 </project>
