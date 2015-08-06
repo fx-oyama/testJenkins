@@ -62,7 +62,7 @@
        <mkdir dir="report"/>
 	   <taskdef resource="checkstyletask.properties"
 	    classpath="${checkstyle.dir}/checkstyle-6.8.1-all.jar"/>
-	    <checkstyle config="${checkstyle.dir}/checkstyle_checks.xml" failOnViolation="false">
+	    <checkstyle config="${checkstyle.dir}/checkstyle_checks.xml" failureProperty="checkstyle.failure" failOnViolation="false">
 	    <formatter type="xml" tofile="checkstyle-result.xml" />
 	    <fileset dir="src" includes="**/*.java" />
 	    </checkstyle>
