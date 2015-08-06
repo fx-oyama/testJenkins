@@ -85,9 +85,9 @@
         <taskdef name="findbugs"
             classname="edu.umd.cs.findbugs.anttask.FindBugsTask">
         </taskdef>
-        <findbugs home="${findbugs.dir}"
+        <findbugs home="${env.FINDBUGS_HOME}"
                   output="xml"
-                  outputFile="${report.dir}/findbugs_report.xml" >
+                  outputFile="${report.dir}/findbugs.xml" >
             <class location="${compile.dest}"/>
         </findbugs>
       </target>
