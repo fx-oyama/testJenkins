@@ -10,6 +10,7 @@
     <property name="source" value="1.7"/>
 	<property name="findbugs.dir" value="/usr/share/java"/>
 	<property name="checkstyle.dir" value="/usr/share/java"/>
+	<property name="compile.dest" location="bin"/>
     <path id="JUnit 4.libraryclasspath">
         <pathelement location="/usr/share/java/junit.jar"/>
     </path>
