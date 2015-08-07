@@ -72,7 +72,11 @@
      ================================= -->
 	    <taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties"
 	         classpath="${checkstyle.dir}/checkstyle-6.8.2-all.jar"/>
-	    <target name="Checkstyle" description="checkstyle">
+    <module name="SuppressionFilter">
+        <property name="file" value="${checkstyle.dir}/config/suppressions.xml"/>
+    </module>
+
+	<target name="Checkstyle" description="checkstyle">
 
 	    	<checkstyle config="${checkstyle.dir}/config/checkstyle_checks.xml" >
 	        <formatter type="xml" tofile="${report.dir}/checkstyle-result.xml"/>
@@ -80,9 +84,6 @@
 	            <include name="**/*.java"/>
 	            <exclude name="**/test/**/*.java"/>
 	        </fileset>
-	    		<module name="SuppressionFilter">
-	    		    <property name="file" value="${checkstyle.dir}/config/suppressions.xml"/>
-	    		</module>
 	    </checkstyle>
 	    </target>
 	<!--
