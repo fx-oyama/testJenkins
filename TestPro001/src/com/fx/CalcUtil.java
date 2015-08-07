@@ -1,3 +1,6 @@
+/**
+ * apapa
+ */
 package com.fx;
 
 /**
@@ -6,42 +9,42 @@ package com.fx;
  *
  */
 public class CalcUtil {
-	/**
-	 * com.
-	 */
-	public CalcUtil() {
-	}
+    /**
+     * com.
+     */
+    public CalcUtil() {
+    }
 
-	/**
-	 * 計算.
-	 * @param a aaaa
-	 * @param b fvvv
-	 * @return ssss
-	 */
-	public final int calculateValue(final int a, final int b) {
-		return a + b;
-	}
+    /**
+     * 計算.
+     * @param a aaaa
+     * @param b fvvv
+     * @return ssss
+     */
+    public final int calculateValue(final int a, final int b) {
+        return a + b;
+    }
 
-	/**
-	 * FindBugsエラー.
-	 */
-	public final void checkStr() {
-		String aStr = "abc";
-		String bStr = "efg";
-		String cStr = "";
+    /**
+     * FindBugsエラー.
+     */
+    public final void checkStr() {
+        String aStr = "abc";
+        String bStr = "efg";
+        String cStr = "";
 
-		if (aStr == bStr) {
-			cStr = "ok";
-		}
+        if (aStr == bStr) {
+            cStr = "ok";
+        }
 
-		while (true) {
-			System.out.println(">>>>" + cStr);
-			if (cStr == "1") {
-				break;
-			}
-		}
+        while (true) {
+            System.out.println(">>>>" + cStr);
+            if (cStr == "1") {
+                break;
+            }
+        }
 
-		System.out.println(">>>>" + cStr);
-	}
+        System.out.println(">>>>" + cStr);
+    }
 
 }
