@@ -7,7 +7,8 @@
     <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="checkstyle.suppressions.file" value="/usr/local/checkstyle/config/suppressions.xml"/>
-    <property name="checkstyle.header.file" value="/usr/local/checkstyle/config"/>
+    <property name="checkstyle.header.file" value="/usr/local/checkstyle/config/java.header"/>
+    <property name="checkstyle.importcontrol.file" value="/usr/local/checkstyle/config/import-control.xml"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
 	<property name="findbugs.dir" value="/usr/local/findbugs"/>
