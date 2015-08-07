@@ -1,17 +1,31 @@
 package com.fx;
 
+/**
+ * Calcutil.
+ * @author fxY6641
+ *
+ */
 public class CalcUtil {
-
+	/**
+	 * com.
+	 */
 	public CalcUtil() {
 	}
 
-	// 計算
-	public int CalculateValue(final int a, final int b) {
+	/**
+	 * 計算.
+	 * @param a aaaa
+	 * @param b fvvv
+	 * @return ssss
+	 */
+	public final int calculateValue(final int a, final int b) {
 		return a + b;
 	}
 
-	// FindBugsエラー
-	public void checkStr() {
+	/**
+	 * FindBugsエラー.
+	 */
+	public final void checkStr() {
 		String aStr = "abc";
 		String bStr = "efg";
 		String cStr = "";

@@ -63,9 +63,9 @@ public class TestCalc {
 
 		CalcUtil cv = new CalcUtil();
 
-		cal = cv.CalculateValue(a, b);
+		cal = cv.calculateValue(a, b);
 
-		assertEquals(result, cv.CalculateValue(a, b));
+		assertEquals(result, cv.calculateValue(a, b));
 
 	}
 
@@ -79,9 +79,9 @@ public class TestCalc {
 
 		CalcUtil cv = new CalcUtil();
 
-		cal = cv.CalculateValue(a, b);
+		cal = cv.calculateValue(a, b);
 
-		assertEquals(result, cv.CalculateValue(a, b));
+		assertEquals(result, cv.calculateValue(a, b));
 
 	}
 
@@ -95,9 +95,9 @@ public class TestCalc {
 
 		CalcUtil cv = new CalcUtil();
 
-		cal = cv.CalculateValue(a, b);
+		cal = cv.calculateValue(a, b);
 
-		assertEquals(result, cv.CalculateValue(a, b));
+		assertEquals(result, cv.calculateValue(a, b));
 
 	}
 
