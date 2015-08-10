@@ -3,13 +3,17 @@
  //// */
 package com.fx;
 
-
+/**
+ * @author fxY6641
+ *
+ */
 public final class ProMain {
 
     /**
      * const.
      */
-    private ProMain() {
+    private ProMain()
+    {
     }
 
     /**
