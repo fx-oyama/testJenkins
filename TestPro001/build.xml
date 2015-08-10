@@ -81,7 +81,7 @@
             <checkstyle config="${checkstyle.dir}/config/checkstyle_checks.xml" >
                 <formatter type="xml" tofile="${report.dir}/checkstyle-result.xml"/>
                 <fileset dir="src">
-                    <include name="**/*.java"/>
+                    <include name="**/fx/**/*.java"/>
                     <exclude name="**/test/**/*.java,**/package-info.java"/>
                 </fileset>
             </checkstyle>
