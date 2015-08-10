@@ -15,7 +15,8 @@ public final class ProMain {
     /**
      * const.
      */
-    private ProMain()  {
+    private ProMain() 
+    {
     }
 
     /**
