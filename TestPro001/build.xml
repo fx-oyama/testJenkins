@@ -9,8 +9,9 @@
     <property name="checkstyle.suppressions.file" value="/usr/local/checkstyle/suppressions.xml"/>
     <property name="checkstyle.header.file" value="/usr/local/checkstyle/java.header"/>
     <property name="checkstyle.importcontrol.file" value="/usr/local/checkstyle/import-control.xml"/>
-    <property name="translation.severity" value="ignore"/>
-    <property name="target" value="1.7"/>
+<!--    <property name="translation.severity" value="ignore"/>    -->
+    <property name="translation.severity" value="warning"/>
+	<property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
 	<property name="findbugs.dir" value="/usr/local/findbugs"/>
 	<property name="checkstyle.dir" value="/usr/local/checkstyle"/>
