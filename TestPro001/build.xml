@@ -67,7 +67,7 @@
 	    <taskdef resource="checkstyletask.properties"
 	         classpath="${checkstyle.dir}/checkstyle-5.6-all.jar"/>
     	<target name="Checkstyle" description="checkstyle">
-	    	<checkstyle config="${checkstyle.dir}/checkstyle_checks.xml" >
+	    	<checkstyle config="${checkstyle.dir}/sun_checks.xml" >
 	            <formatter type="xml" tofile="${report.dir}/checkstyle-result.xml"/>
 	            <fileset dir="src">
 	                <include name="**/*.java"/>
