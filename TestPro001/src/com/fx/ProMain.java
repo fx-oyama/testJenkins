@@ -1,6 +1,6 @@
- /////////////////////////////////////////////////////////////////////////////
- // * papaa.
- //// */
+/**
+* abcdef
+*/
 package com.fx;
 
 /**
@@ -18,7 +18,7 @@ public final class ProMain {
 	
     /**
      * main.
-     * @param args 
+     * @param ar dsdsdsdsds. 
      */
     public static void main(final String[] args) {
         int a = 1;
