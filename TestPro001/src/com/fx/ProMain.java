@@ -23,7 +23,7 @@ public final class ProMain {
      * main.
      * @param args dsdsdsdsds. 
      */
-    public static void main(final String[] args) {
+	public static void main(final String[] args) {
         int a = 1;
         int b  = 1;
         System.out.println("----" + a);
