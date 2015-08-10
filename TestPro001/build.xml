@@ -68,6 +68,7 @@
      ================================= -->
 	    <taskdef resource="checkstyletask.properties"
 	         classpath="${checkstyle.dir}/checkstyle-5.6-all.jar"/>
+	    <delete dir="${report.dir}"/>
 	    <mkdir dir="${report.dir}"/>
     	<target name="Checkstyle" description="checkstyle">
 	    	<checkstyle config="${checkstyle.dir}/sun_checks.xml" >
