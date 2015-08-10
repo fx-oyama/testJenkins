@@ -71,8 +71,8 @@
 	    	<checkstyle config="${checkstyle.dir}/checkstyle_checks.xml" >
 	            <formatter type="xml" tofile="${report.dir}/checkstyle-result.xml"/>
 	            <fileset dir="src">
-	                <include name="**/*.java"/>
-	                <exclude name="**/test/**/*.java,**/package-info.java"/>
+	                <include name="**/Pro*.java"/>
+	                <exclude name="**/test/**/*.java,**/package-info.java,**/HeaderCheck"/>
 	            </fileset>
 	        </checkstyle>
 	    </target>
