@@ -20,8 +20,7 @@ public final class ProMain {
      * @param args aaa.
      */
     public static void main(final String[] args) {
-
-		System.out.println(
-				"---test----------------------------------------------------------------------------------------");
+        int a = 1;
+		System.out.println("----");
     }
 }
