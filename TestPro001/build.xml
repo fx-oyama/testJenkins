@@ -11,11 +11,11 @@
     <property name="checkstyle.importcontrol.file" value="/usr/local/checkstyle/config/import-control.xml"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
-	<property name="findbugs.dir" value="/usr/local/findbugs"/>
-	<property name="checkstyle.dir" value="/usr/local/checkstyle"/>
-	<property name="compile.dest" location="${basedir}/bin"/>
-	<property name="build.SourceDir" location="${basedir}/src"/>
-	<property name="findbugs.dir" location="/usr/local/findbugs"/>
+    <property name="findbugs.dir" value="/usr/local/findbugs"/>
+    <property name="checkstyle.dir" value="/usr/local/checkstyle"/>
+    <property name="compile.dest" location="${basedir}/bin"/>
+    <property name="build.SourceDir" location="${basedir}/src"/>
+    <property name="findbugs.dir" location="/usr/local/findbugs"/>
     <path id="JUnit 4.libraryclasspath">
         <pathelement location="/usr/share/java/junit.jar"/>
     </path>
@@ -54,46 +54,46 @@
             <classpath refid="TestPro001.classpath"/>
         </javac>
     </target>
-	   <target name="TestCalc">
-	        <mkdir dir="${junit.output.dir}"/>
-	        <junit fork="yes" printsummary="withOutAndErr">
-	            <formatter type="xml"/>
-	            <test name="com.test.TestCalc" todir="${junit.output.dir}"/>
-	            <classpath refid="TestPro001.classpath"/>
-	        </junit>
-	    </target>
-	    <target name="junitreport">
-	        <junitreport todir="${junit.output.dir}">
-	            <fileset dir="${junit.output.dir}">
-	                <include name="TEST-*.xml"/>
-	            </fileset>
-	            <report format="frames" todir="${junit.output.dir}"/>
-	        </junitreport>
-	    </target>
+       <target name="TestCalc">
+            <mkdir dir="${junit.output.dir}"/>
+            <junit fork="yes" printsummary="withOutAndErr">
+                <formatter type="xml"/>
+                <test name="com.test.TestCalc" todir="${junit.output.dir}"/>
+                <classpath refid="TestPro001.classpath"/>
+            </junit>
+        </target>
+        <target name="junitreport">
+            <junitreport todir="${junit.output.dir}">
+                <fileset dir="${junit.output.dir}">
+                    <include name="TEST-*.xml"/>
+                </fileset>
+                <report format="frames" todir="${junit.output.dir}"/>
+            </junitreport>
+        </target>
     <!-- =================================
           target: Checkstyle
      ================================= -->
-	    <taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties"
-	         classpath="${checkstyle.dir}/checkstyle-6.8.1-all.jar"/>
+        <taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties"
+             classpath="${checkstyle.dir}/checkstyle-6.8.1-all.jar"/>
         <delete dir="${report.dir}"/>
         <mkdir dir="${report.dir}"/>
-    	<target name="Checkstyle" description="checkstyle">
-	    	<checkstyle config="${checkstyle.dir}/config/checkstyle_checks.xml" >
-	            <formatter type="xml" tofile="${report.dir}/checkstyle-result.xml"/>
-	            <fileset dir="src">
-	                <include name="**/*.java"/>
-	                <exclude name="**/test/**/*.java,**/package-info.java"/>
-	            </fileset>
-	        </checkstyle>
-	    </target>
+        <target name="Checkstyle" description="checkstyle">
+            <checkstyle config="${checkstyle.dir}/config/checkstyle_checks.xml" >
+                <formatter type="xml" tofile="${report.dir}/checkstyle-result.xml"/>
+                <fileset dir="src">
+                    <include name="**/*.java"/>
+                    <exclude name="**/test/**/*.java,**/package-info.java"/>
+                </fileset>
+            </checkstyle>
+        </target>
     <!-- =================================
           target: Findbugs
     ================================= -->
     <target name="Findbugs">
-    	<echo message="FINDBUGS_HOME: ${findbugs.dir}"/>
+        <echo message="FINDBUGS_HOME: ${findbugs.dir}"/>
         <taskdef name="findbugs"
             classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
-        	classpath="${findbugs.dir}/lib/findbugs-ant.jar">
+            classpath="${findbugs.dir}/lib/findbugs-ant.jar">
         </taskdef>
         <findbugs home="${findbugs.dir}"
                   output="xml"
