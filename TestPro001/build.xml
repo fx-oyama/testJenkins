@@ -37,7 +37,7 @@
         <delete dir="bin"/>
     </target>
     <target depends="clean" name="cleanall"/>
-    <target depends="build-subprojects,build-project,Findbugs" name="build"/>
+    <target depends="build-subprojects,build-project,Checkstyle,Findbugs" name="build"/>
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
@@ -68,7 +68,7 @@
 	    <taskdef resource="checkstyletask.properties"
 	         classpath="${checkstyle.dir}/checkstyle-5.6-all.jar"/>
     	<target name="Checkstyle" description="checkstyle">
-	    	<checkstyle config="${checkstyle.dir}/checkstyle_checks.xml" >
+	    	<checkstyle config="${checkstyle.dir}/sun_checks.xml" >
 	            <formatter type="xml" tofile="${report.dir}/checkstyle-result.xml"/>
 	            <fileset dir="src">
 	                <include name="**/Pro*.java"/>
