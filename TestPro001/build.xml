@@ -95,7 +95,6 @@
     ================================= -->
     <target name="Findbugs">
     	<echo message="FINDBUGS_HOME: ${findbugs.dir}"/>
-    	<delete dir="${report.dir}"/>
         <mkdir dir="${report.dir}"/>
         <taskdef name="findbugs"
             classname="edu.umd.cs.findbugs.anttask.FindBugsTask"
