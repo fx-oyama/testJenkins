@@ -13,15 +13,15 @@ public final class ProMain {
      * const.
      */
     private ProMain()  {
-	}
+    }
 
-	
     /**
      * main.
-     * @param ar dsdsdsdsds. 
+     * @param args dsdsdsdsds. 
      */
     public static void main(final String[] args) {
-
+       int a
+	     =1;
         System.out.println("----");
     }
 }
