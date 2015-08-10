@@ -21,6 +21,6 @@ public final class ProMain {
      */
     public static void main(final String[] args) {
         int a = 1;
-		System.out.println("----");
+        System.out.println("----");
     }
 }
