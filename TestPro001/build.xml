@@ -82,7 +82,7 @@
 	            <formatter type="xml" tofile="${report.dir}/checkstyle-result.xml"/>
 	            <fileset dir="src">
 	                <include name="**/*.java"/>
-	                <exclude name="**/test/**/*.java"/>
+	                <exclude name="**/test/**/*.java,**/package-info.java"/>
 	            </fileset>
 	        </checkstyle>
 	    </target>
