@@ -9,15 +9,9 @@ package com.fx;
  */
 public final class ProMain {
 
-    /**
-	* aaaaaaaaaaa
-	*/
     public static final String ER_VVV = "df";
-    /**
-	* aaaaaaaaaaaaaaaaaaaaa.
-	*/
-	public static final String ER_VVV01  = "df";
-	
+ 	public static final String ER_VVV01  = "df";
+
     /**
      * const.
      */
