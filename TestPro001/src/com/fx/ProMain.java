@@ -13,7 +13,7 @@ public final class ProMain {
      * const.
      */
     private ProMain()  {
-    }
+	}
 
 	
     /**
@@ -21,7 +21,7 @@ public final class ProMain {
      * @param ar dsdsdsdsds. 
      */
     public static void main(final String[] args) {
-        int a = 1;
+
         System.out.println("----");
     }
 }
