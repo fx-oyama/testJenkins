@@ -9,8 +9,10 @@ package com.fx;
  */
 public final class ProMain {
 
+    // aaaa
     public static final String ER_VVV = "df";
-    public static final String ER_VVV01  = "df";
+    // ddddd
+	public static final String ER_VVV01  = "df";
 	
     /**
      * const.
