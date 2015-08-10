@@ -6,9 +6,11 @@
     <property name="report.dir" value="${basedir}/report"/>
     <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
+<!--
     <property name="checkstyle.suppressions.file" value="/usr/local/checkstyle/config/suppressions.xml"/>
     <property name="checkstyle.header.file" value="/usr/local/checkstyle/config/java.header"/>
     <property name="checkstyle.importcontrol.file" value="/usr/local/checkstyle/config/import-control.xml"/>
+-->
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
 	<property name="findbugs.dir" value="/usr/local/findbugs"/>
@@ -19,15 +21,6 @@
     <path id="JUnit 4.libraryclasspath">
         <pathelement location="/usr/share/java/junit.jar"/>
     </path>
-<!--
-    <property environment="env" />
-    <condition property="have.findbugs">
-        <and>
-            <available classname="edu.umd.cs.findbugs.anttask.FindBugsTask" />
-            <available file="${env.FINDBUGS_HOME}" />
-        </and>
-    </condition>
--->
     <path id="TestPro001.classpath">
         <pathelement location="bin"/>
         <path refid="JUnit 4.libraryclasspath"/>
@@ -73,10 +66,10 @@
     <!-- =================================
           target: Checkstyle
      ================================= -->
-	    <taskdef resource="com/puppycrawl/tools/checkstyle/ant/checkstyle-ant-task.properties"
-	         classpath="${checkstyle.dir}/checkstyle-6.8.2-all.jar"/>
+	    <taskdef resource="checkstyletask.properties"
+	         classpath="${checkstyle.dir}/checkstyle-5.6-all.jar"/>
     	<target name="Checkstyle" description="checkstyle">
-	    	<checkstyle config="${checkstyle.dir}/config/checkstyle_checks.xml" >
+	    	<checkstyle config="${checkstyle.dir}/checkstyle_checks.xml" >
 	            <formatter type="xml" tofile="${report.dir}/checkstyle-result.xml"/>
 	            <fileset dir="src">
 	                <include name="**/*.java"/>
