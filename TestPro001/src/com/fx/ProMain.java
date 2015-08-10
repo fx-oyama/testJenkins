@@ -17,7 +17,7 @@ public final class ProMain {
 
     /**
      * main.
-     * @param args aaa.
+     * @param args 
      */
     public static void main(final String[] args) {
         int a = 1;
