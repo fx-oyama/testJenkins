@@ -17,13 +17,6 @@
 	<property name="junit.output.dir" value="${report.dir}/junit"/>
     <property name="junit.src.test" location="src"/>
     <property name="test.build" location="testbuild"/>
-
-	<!-- MainTestのビルドに必要な情報 -->
-<!--
-
-    <property name="test.class.name" value="com.test.TestCalc" />
--->
-
     <path id="test.classpath">
     <pathelement location="bin" />
       <pathelement location="${test.build}" />
@@ -66,7 +59,7 @@
             <mkdir dir="${junit.output.dir}"/>
             <junit fork="yes" printsummary="withOutAndErr">
                 <formatter type="xml"/>
-                <test name="com.test.TestCalc" todir="${junit.output.dir}"/>
+                <test name="com.test.CalcUtilTest" todir="${junit.output.dir}"/>
                 <classpath refid="TestPro001.classpath"/>
             </junit>
         </target>
@@ -118,7 +111,7 @@
             <formatter type="xml"/>
             <batchtest fork="yes" todir="${junit.output.dir}">
                <fileset dir="${junit.src.test}" >
-                  <include name="**/test/**/Test*.java" />
+                  <include name="**/test/**/*Test.java" />
                </fileset>
             </batchtest>
             <classpath refid="TestPro001.classpath"/>
