@@ -51,26 +51,6 @@
             <classpath refid="test.classpath" />
         </javac>
     </target>
-	<!--
-    <target name="TestCalc">
-      <mkdir dir="${junit.output.dir}"/>
-      <junit fork="yes" printsummary="withOutAndErr">
-         <formatter type="xml"/>
-           <test name="com.test.CalcUtilTest" todir="${junit.output.dir}"/>
-             <classpath refid="TestPro001.classpath"/>
-          </junit>
-      </target>
-      <target name="junitreport">
-        <junitreport todir="${junit.output.dir}">
-           <fileset dir="${junit.output.dir}">
-             <include name="TEST-*.xml"/>
-               </fileset>
-             <report format="frames" todir="${junit.output.dir}"/>
-           </junitreport>
-      </target>
-
-      -->
-
     <!-- =================================
           target: Checkstyle
      ================================= -->
