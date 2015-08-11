@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="build" name="TestPro001">
     <property environment="env"/>
-    <property name="compile.test.src" location="${basedir}/src"/>
-    <property name="report.dir" value="${basedir}/report"/>
-    <property name="debuglevel" value="source,lines,vars"/>
-    <property name="checkstyle.suppressions.file" value="/usr/local/checkstyle/config/suppressions.xml"/>
-    <property name="checkstyle.header.file" value="/usr/local/checkstyle/config/java.header"/>
-    <property name="checkstyle.importcontrol.file" value="/usr/local/checkstyle/config/import-control.xml"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
-    <property name="findbugs.dir" value="/usr/local/findbugs"/>
-    <property name="checkstyle.dir" value="/usr/local/checkstyle"/>
-    <property name="compile.dest" location="${basedir}/bin"/>
+	<property name="compile.test.src" location="src"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="compile.dest" location="bin"/>
     <property name="build.SourceDir" location="${basedir}/src"/>
-    <property name="findbugs.dir" location="/usr/local/findbugs"/>
+	<property name="report.dir" location="report"/>
+    <property name="checkstyle.dir" value="/usr/local/checkstyle"/>
+    <property name="checkstyle.suppressions.file" value="${checkstyle.dir}/config/suppressions.xml"/>
+    <property name="checkstyle.header.file" value="${checkstyle.dir}/config/java.header"/>
+    <property name="checkstyle.importcontrol.file" value="${checkstyle.dir}/config/import-control.xml"/>
+    <property name="findbugs.dir" value="/usr/local/findbugs"/>
 	<property name="junit.output.dir" value="${report.dir}/junit"/>
     <property name="junit.src.test" location="src"/>
     <property name="test.build" location="testbuild"/>
@@ -33,14 +32,6 @@
     <target name="init">
         <mkdir dir="bin"/>
     	<mkdir dir="${test.build}"/>
-<!--
-    	<copy includeemptydirs="false" todir="bin">
-            <fileset dir="src">
-                <exclude name="**/*.launch"/>
-                <exclude name="**/*.java"/>
-            </fileset>
-        </copy>
--->
     </target>
     <target name="clean">
         <delete dir="bin"/>
