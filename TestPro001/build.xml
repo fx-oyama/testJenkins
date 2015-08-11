@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="build" name="TestPro001">
     <property environment="env"/>
-    <property name="target" value="1.7"/>
+    <property name="test.build" location="testbuild"/>
+	<property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
 	<property name="compile.test.src" location="src"/>
     <property name="debuglevel" value="source,lines,vars"/>
@@ -15,32 +16,34 @@
     <property name="findbugs.dir" value="/usr/local/findbugs"/>
 	<property name="junit.output.dir" value="${report.dir}/junit"/>
     <property name="junit.src.test" location="src"/>
-    <property name="test.build" location="testbuild"/>
+	<property name="tools.dir" value="/usr/share/java"/>
     <path id="test.classpath">
-    <pathelement location="bin" />
+    <pathelement location="${compile.dest}" />
       <pathelement location="${test.build}" />
-      <pathelement location="/usr/share/java/junit.jar" />
+      <pathelement location="${tools.dir}/junit.jar" />
     </path>
 	<path id="JUnit 4.libraryclasspath">
-        <pathelement location="/usr/share/java/junit.jar"/>
-        <pathelement location="/usr/share/java/hamcrest-core.jar"/>
+        <pathelement location="${tools.dir}/junit.jar"/>
+        <pathelement location="${tools.dir}/hamcrest-core.jar"/>
     </path>
     <path id="TestPro001.classpath">
-        <pathelement location="bin"/>
+        <pathelement location="${compile.dest}"/>
         <path refid="JUnit 4.libraryclasspath"/>
     </path>
     <target name="init">
-        <mkdir dir="bin"/>
+        <mkdir dir="${compile.dest}"/>
     	<mkdir dir="${test.build}"/>
     </target>
     <target name="clean">
-        <delete dir="bin"/>
+        <delete dir="${compile.dest}"/>
+    	<delete dir="${report.dir}"/>
+    	<delete dir="${test.build}"/>
     </target>
     <target depends="clean" name="cleanall"/>
     <target depends="build-project,Checkstyle,Findbugs,test.all" name="build"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+        <javac debug="true" debuglevel="${debuglevel}" destdir="${compile.dest}" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
             <classpath refid="TestPro001.classpath"/>
         </javac>
