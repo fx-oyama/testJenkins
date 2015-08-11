@@ -12,13 +12,15 @@ import com.fx.CalcUtil;
 
 public class TestCalc {
 
-	static {
-		System.out.println("static init call");
-	}
-
-	{
-		System.out.println("instance init call");
-	}
+	/*
+		static {
+			System.out.println("static init call");
+		}
+	
+		{
+			System.out.println("instance init call");
+		}
+	*/
 
 	public TestCalc() {
 		System.out.println("constractor call");
