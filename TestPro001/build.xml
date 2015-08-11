@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project basedir="." default="build" name="TestPro001">
     <property environment="env"/>
-    <property name="ECLIPSE_HOME" value="D:/Eclipse/pleiades4.5jre/eclipse/"/>
     <property name="compile.test.src" location="${basedir}/src"/>
     <property name="report.dir" value="${basedir}/report"/>
-    <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="checkstyle.suppressions.file" value="/usr/local/checkstyle/config/suppressions.xml"/>
     <property name="checkstyle.header.file" value="/usr/local/checkstyle/config/java.header"/>
@@ -16,25 +14,29 @@
     <property name="compile.dest" location="${basedir}/bin"/>
     <property name="build.SourceDir" location="${basedir}/src"/>
     <property name="findbugs.dir" location="/usr/local/findbugs"/>
-    <path id="JUnit 4.libraryclasspath">
+	<property name="junit.output.dir" value="${report.dir}/junit"/>
+    <property name="junit.src.test" location="src"/>
+    <!-- MainTestのビルドに必要な情報 -->
+<!--
+    <property name="test.build" location="testbuild"/>
+    <property name="test.class.name" value="com.test.TestCalc" />
+    <path id="test.classpath">
+    <pathelement location="${build}" />
+      <pathelement location="${test.build}" />
+      <pathelement location="lib/junit-4.12.jar" />
+    </path>
+-->
+	<path id="JUnit 4.libraryclasspath">
         <pathelement location="/usr/share/java/junit.jar"/>
     </path>
-<!--
-    <property environment="env" />
-    <condition property="have.findbugs">
-        <and>
-            <available classname="edu.umd.cs.findbugs.anttask.FindBugsTask" />
-            <available file="${env.FINDBUGS_HOME}" />
-        </and>
-    </condition>
--->
     <path id="TestPro001.classpath">
         <pathelement location="bin"/>
         <path refid="JUnit 4.libraryclasspath"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
-        <copy includeemptydirs="false" todir="bin">
+    	<mkdir dir="${test.build}"/>
+    	<copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
                 <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
@@ -45,13 +47,15 @@
         <delete dir="bin"/>
     </target>
     <target depends="clean" name="cleanall"/>
-    <target depends="build-subprojects,build-project,Checkstyle,Findbugs" name="build"/>
-    <target name="build-subprojects"/>
+    <target depends="build-project,Checkstyle,Findbugs,test.all" name="build"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
             <classpath refid="TestPro001.classpath"/>
+        </javac>
+        <javac srcdir="${test.src}" destdir="${test.build}" includeAntRuntime="no">
+            <classpath refid="test.classpath" />
         </javac>
     </target>
        <target name="TestCalc">
@@ -101,6 +105,20 @@
             <class location="${compile.dest}"/>
         </findbugs>
       </target>
-
+    <!-- =================================
+          target: test.all
+    ================================= -->
+    <target name="test.all">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <batchtest fork="yes" todir="${junit.output.dir}">
+               <fileset dir="${junit.src.test}" >
+                  <include name="**/test/**/Test*.java" />
+               </fileset>
+            </batchtest>
+            <classpath refid="TestPro001.classpath"/>
+        </junit>
+    </target>
 
 </project>
