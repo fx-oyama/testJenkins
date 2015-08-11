@@ -16,16 +16,19 @@
     <property name="findbugs.dir" location="/usr/local/findbugs"/>
 	<property name="junit.output.dir" value="${report.dir}/junit"/>
     <property name="junit.src.test" location="src"/>
-    <!-- MainTestのビルドに必要な情報 -->
-<!--
     <property name="test.build" location="testbuild"/>
+
+	<!-- MainTestのビルドに必要な情報 -->
+<!--
+
     <property name="test.class.name" value="com.test.TestCalc" />
-    <path id="test.classpath">
-    <pathelement location="${build}" />
-      <pathelement location="${test.build}" />
-      <pathelement location="lib/junit-4.12.jar" />
-    </path>
 -->
+
+    <path id="test.classpath">
+    <pathelement location="bin" />
+      <pathelement location="${test.build}" />
+      <pathelement location="/usr/share/java/junit.jar" />
+    </path>
 	<path id="JUnit 4.libraryclasspath">
         <pathelement location="/usr/share/java/junit.jar"/>
     </path>
@@ -54,7 +57,7 @@
             <src path="src"/>
             <classpath refid="TestPro001.classpath"/>
         </javac>
-        <javac srcdir="${test.src}" destdir="${test.build}" includeAntRuntime="no">
+        <javac srcdir="${junit.src.test}" destdir="${test.build}" includeAntRuntime="no">
             <classpath refid="test.classpath" />
         </javac>
     </target>
