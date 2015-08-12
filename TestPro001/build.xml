@@ -59,7 +59,7 @@
         <delete dir="${report.dir}"/>
         <mkdir dir="${report.dir}"/>
         <target name="Checkstyle" description="checkstyle">
-            <checkstyle config="${checkstyle.dir}/config/checkstyle_checks.xml" >
+            <checkstyle config="${checkstyle.dir}/config/google_checks.xml" >
                 <formatter type="xml" tofile="${report.dir}/checkstyle-result.xml"/>
                 <fileset dir="src">
                     <include name="**/fx/**/*.java"/>
